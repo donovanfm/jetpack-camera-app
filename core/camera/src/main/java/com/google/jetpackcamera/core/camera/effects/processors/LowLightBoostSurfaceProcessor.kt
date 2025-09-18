@@ -96,7 +96,8 @@ class LowLightBoostSurfaceProcessor(
                 Log.d(TAG, "LLB session disconnected: $status")
                 releaseLowLightBoostSession()
                 if (status.statusCode != LowLightBoostStatusCodes.SERVICE_RELEASED) {
-                    onLowLightBoostErrorCallback()
+                    val e = Exception(status.toString())
+                    onLowLightBoostErrorCallback(e)
                 }
             }
         }
